@@ -163,7 +163,7 @@ body {
   border-width: 0px 0px 0px 30px;
   height: 30px;
   background: transparent;
-  margin: 10px 0 0 8px;
+  margin: 10px 0 0 10px;
   cursor: pointer;
 }
 .samples .pause-play-container .play-btn {
@@ -174,7 +174,7 @@ body {
   background: transparent;
   width: 20px;
   height: 20px;
-  margin: auto 0 auto 15px;
+  margin: auto 0 auto 17px;
   cursor: pointer;
 }
 .samples .pause-play-container:hover {
