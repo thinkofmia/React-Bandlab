@@ -1,0 +1,308 @@
+//Variables
+$foreground: #f2f2f2;
+$background: teal;
+$nav-background: black;
+$nav-highlighted: rgb(0, 71, 71);
+$card-highlighted: #c2c2c2;
+$card-group: salmon;
+$translucent: rgba(0,0,0,0.2);
+$thicker-translucent: rgba(0,0,0,0.5);
+
+//Mixin
+@mixin dropInMix() {
+    from {
+        opacity:0;
+        top: 100%;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+@mixin scaleIn() {
+    from {
+        scale: 0.5;
+    }
+    to {
+        scale:1;
+    }
+}
+
+//CSS
+body {    
+    color: $foreground;
+    min-width: 200px;
+}
+
+#background {
+    clip-path: polygon(0 0, 100% 2%, 100% 50%, 0 100%);
+    background-color: $background;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.navbar {
+    background-color: $nav-background;
+    color: $foreground;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    ul {
+        align-content: center;
+        flex-direction: row;
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a, a:active, a:hover, a:visited {
+        text-decoration: none;
+        color: $foreground;
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    .current {
+        background-color: $nav-highlighted;
+    }
+}
+
+.home, .samples {
+    top: 50px;
+    position: relative;
+    z-index: 1;
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+    -o-animation: fadein 1s; /* Opera */
+}
+
+.home {
+    .post-btns{
+        background-color: transparent;
+        color: $foreground;
+        line-height: 38px;
+        border: 1px solid $foreground;
+        cursor: pointer;
+        padding: 0 20px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .post-btns:hover, .post-btns.selected{
+        background-color: $translucent;
+    }
+
+    .cards{
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0px;
+        .card-group {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            background-color: $card-group;
+            justify-content: center;
+            .card-group-id {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .card {
+            max-width: 300px;
+            box-shadow: 0 4px 8px 0 $translucent;
+            transition: 0.3s;
+            border-radius: 8px;
+            margin: 20px; 
+            cursor: pointer;        
+            background-color: $foreground;
+            color: $nav-background;
+            animation: zoom 1s;
+            -moz-animation: zoom 1s; /* Firefox */
+            -webkit-animation: zoom 1s; /* Safari and Chrome */
+            -o-animation: zoom 1s; /* Opera */
+
+            .card-image {
+                width: 100%;
+                border-radius: 8px 8px 0px 0px;
+            }
+            .card-contents {
+                padding: 10px;
+                position: relative;
+                height: 260px;
+                .card-title {
+                    margin: 0px;
+                }
+                .card-user {
+                    font-weight: bold;
+                    position: absolute;
+                    text-align: center;
+                    background-color: $background;
+                    color: $foreground;
+                    top: -80px;
+                    right: 14px;
+                    width: 75px;
+                    height: 50px;
+                    border-radius: 50px;
+                    font-size: xxx-large;
+                } 
+            }
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 16px 0 $translucent;   
+            background-color: $card-highlighted;
+            scale: 1.1;
+        }
+    }
+}
+
+.samples {
+    .visualization {
+        width: 100%;
+        height: 25vh;
+    }
+
+    .playpause-track {
+        cursor: pointer;
+    }
+    .pause-play-container {
+        width: 50px;
+        height: 50px;
+        background-color: $foreground;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        margin: auto;
+
+        .pause-btn {
+            border-color: $background;
+            border-style: double;
+            border-width: 0px 0px 0px 30px;
+            height: 30px;
+            background: transparent;
+            margin: 10px 0 0 8px;
+            cursor: pointer;
+        }
+
+        .play-btn {
+            box-sizing: border-box;
+            border-style: solid;
+            border-width: 20px 0px 20px 30px;
+            border-color: transparent transparent transparent $background;
+            background: transparent;
+            width: 20px;
+            height: 20px;
+            margin: auto 0 auto 15px;
+            cursor: pointer;
+        }
+    }
+    .pause-play-container:hover {
+        background-color: $card-highlighted;
+    }
+
+    .audio-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        justify-content: center;
+        li {
+            background: $translucent;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 20px;
+
+            cursor: pointer;
+            .audio-title {
+                text-align: center;
+            }
+            audio {
+                border-radius: 20px;
+            }
+        }
+        li:hover {
+            background-color: $thicker-translucent;
+        }
+    }
+}
+
+//Animations
+@keyframes fadein {
+    @include dropInMix;
+}
+@-moz-keyframes fadein {
+    @include dropInMix;
+}
+@-webkit-keyframes fadein {
+    @include dropInMix;
+}
+@-o-keyframes fadein {
+    @include dropInMix;
+}
+
+@keyframes zoom {
+    @include scaleIn;
+}
+@-moz-keyframes zoom {
+    @include scaleIn;
+}
+@-webkit-keyframes zoom {
+    @include scaleIn;
+}
+@-o-keyframes zoom {
+    @include scaleIn;
+}
+
+
+
+//Responsiveness
+@media screen and (max-width: 320px) {
+    .home{
+        .cards {
+            .card-group-id{
+                font-size: larger;
+            }
+            .card{
+                .card-title {
+                    font-size: large;
+                }
+                .card-contents{
+                    .card-description {
+                        font-size: small;
+                    }
+                    .card-user{
+                        font-size: xx-large !important;
+                        height: 40px !important;
+                        top: -55px;
+                        right: 5px;
+                        width: 60px;
+                    }
+                }
+
+            }
+        }
+        .post-btns {
+            font-size: medium !important;
+            padding: 0 10px !important;
+        }
+    }
+
+}

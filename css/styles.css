@@ -1,0 +1,297 @@
+body {
+  color: #f2f2f2;
+  min-width: 200px;
+}
+
+#background {
+  clip-path: polygon(0 0, 100% 2%, 100% 50%, 0 100%);
+  background-color: teal;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.navbar {
+  background-color: black;
+  color: #f2f2f2;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+.navbar ul {
+  align-content: center;
+  flex-direction: row;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar a, .navbar a:active, .navbar a:hover, .navbar a:visited {
+  text-decoration: none;
+  color: #f2f2f2;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+}
+.navbar .current {
+  background-color: #004747;
+}
+
+.home, .samples {
+  top: 50px;
+  position: relative;
+  z-index: 1;
+  animation: fadein 1s;
+  -moz-animation: fadein 1s;
+  /* Firefox */
+  -webkit-animation: fadein 1s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1s;
+  /* Opera */
+}
+
+.home .post-btns {
+  background-color: transparent;
+  color: #f2f2f2;
+  line-height: 38px;
+  border: 1px solid #f2f2f2;
+  cursor: pointer;
+  padding: 0 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+}
+.home .post-btns:hover, .home .post-btns.selected {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.home .cards {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px;
+}
+.home .cards .card-group {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  background-color: salmon;
+  justify-content: center;
+}
+.home .cards .card-group .card-group-id {
+  width: 100%;
+  text-align: center;
+}
+.home .cards .card {
+  max-width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 8px;
+  margin: 20px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  color: black;
+  animation: zoom 1s;
+  -moz-animation: zoom 1s;
+  /* Firefox */
+  -webkit-animation: zoom 1s;
+  /* Safari and Chrome */
+  -o-animation: zoom 1s;
+  /* Opera */
+}
+.home .cards .card .card-image {
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
+.home .cards .card .card-contents {
+  padding: 10px;
+  position: relative;
+  height: 260px;
+}
+.home .cards .card .card-contents .card-title {
+  margin: 0px;
+}
+.home .cards .card .card-contents .card-user {
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  background-color: teal;
+  color: #f2f2f2;
+  top: -80px;
+  right: 14px;
+  width: 75px;
+  height: 50px;
+  border-radius: 50px;
+  font-size: xxx-large;
+}
+.home .cards .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  background-color: #c2c2c2;
+  scale: 1.1;
+}
+
+.samples .visualization {
+  width: 100%;
+  height: 25vh;
+}
+.samples .playpause-track {
+  cursor: pointer;
+}
+.samples .pause-play-container {
+  width: 50px;
+  height: 50px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: auto;
+}
+.samples .pause-play-container .pause-btn {
+  border-color: teal;
+  border-style: double;
+  border-width: 0px 0px 0px 30px;
+  height: 30px;
+  background: transparent;
+  margin: 10px 0 0 8px;
+  cursor: pointer;
+}
+.samples .pause-play-container .play-btn {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 20px 0px 20px 30px;
+  border-color: transparent transparent transparent teal;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  margin: auto 0 auto 15px;
+  cursor: pointer;
+}
+.samples .pause-play-container:hover {
+  background-color: #c2c2c2;
+}
+.samples .audio-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: center;
+}
+.samples .audio-list li {
+  background: rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.samples .audio-list li .audio-title {
+  text-align: center;
+}
+.samples .audio-list li audio {
+  border-radius: 20px;
+}
+.samples .audio-list li:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    top: 100%;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+    top: 100%;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+    top: 100%;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+    top: 100%;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes zoom {
+  from {
+    scale: 0.5;
+  }
+  to {
+    scale: 1;
+  }
+}
+@-moz-keyframes zoom {
+  from {
+    scale: 0.5;
+  }
+  to {
+    scale: 1;
+  }
+}
+@-webkit-keyframes zoom {
+  from {
+    scale: 0.5;
+  }
+  to {
+    scale: 1;
+  }
+}
+@-o-keyframes zoom {
+  from {
+    scale: 0.5;
+  }
+  to {
+    scale: 1;
+  }
+}
+@media screen and (max-width: 320px) {
+  .home .cards .card-group-id {
+    font-size: larger;
+  }
+  .home .cards .card .card-title {
+    font-size: large;
+  }
+  .home .cards .card .card-contents .card-description {
+    font-size: small;
+  }
+  .home .cards .card .card-contents .card-user {
+    font-size: xx-large !important;
+    height: 40px !important;
+    top: -55px;
+    right: 5px;
+    width: 60px;
+  }
+  .home .post-btns {
+    font-size: medium !important;
+    padding: 0 10px !important;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
