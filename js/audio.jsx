@@ -42,10 +42,14 @@ class AudioPlay extends React.Component {
 
   playAudio(){
     this.audio.play();
-    this.audioSource = this.audioCtx.createMediaElementSource(this.audio);
-    this.analyser = this.audioCtx.createAnalyser();
+    this.audioSource = this.audioSource || this.audioCtx.createMediaElementSource(this.audio);
+    this.analyser = this.analyser || this.audioCtx.createAnalyser();
     this.audioSource.connect(this.analyser);
     this.analyser.connect(this.audioCtx.destination);
+  }
+
+  pauseAudio(){
+    this.audio.pause();
   }
 
   pausePlay = () => {
@@ -57,7 +61,7 @@ class AudioPlay extends React.Component {
       this.playAudio();
       this.setState({playing: true});
     } else if (this.state.playing) {
-      this.audio.pause();
+      this.pauseAudio();
       this.setState({playing: false});
     }
     this.visuals();
