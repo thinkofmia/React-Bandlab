@@ -43,7 +43,7 @@ class List extends React.Component {
   }
 
   render() {
-    var cardImage = 'React-Bandlab-Test/img/sample-image.gif';
+    var cardImage = 'React-Bandlab/img/sample-image.gif';
     return (
       <div>
         <button class="fetch-btn post-btns" onClick = { () => this.dataMount() }>Fetch List</button>

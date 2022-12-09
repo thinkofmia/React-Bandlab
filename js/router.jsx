@@ -7,7 +7,7 @@ const NavLink = ReactRouterDOM.NavLink;
 const Switch = ReactRouterDOM.Switch;
 
 const e = React.createElement;
-const audioDir = 'React-Bandlab-Test/audio/';
+const audioDir = 'React-Bandlab/audio/';
 const urls = [`${audioDir}new-wave-kit.ogg`,`${audioDir}synth-organ.ogg`];
 
 const Navigation = () => (
